@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Coucou 02</h1>
+{% endblock %}
+
+{# per evitare di ripetere una cosa già scritta #}
+{# {% block title %} Series | Home {% endblock %} #}
+{# si puo' fare un echo del parent #}
+
+{% block title %} {{ parent() }} | Home {% endblock %}
+

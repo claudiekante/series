@@ -1,0 +1,47 @@
+
+{%  extends 'base.html.twig' %}
+
+{% block body %}
+<h1>prova di scrittura</h1>
+    <div>{{ mySerie.title }}</div>
+    <p></p>
+{# questo è un commento #}
+{% set nome="Asrubale" %}
+<h3>{{ nome }}</h3>
+{# crée un tableau #}
+{% set colors=["rosso", "verde", "giallo", "blu"] %}
+<div>{{ colors|length }}</div>
+<div>{{ colors|join('/') }}</div>
+{% for color in colors %}
+    <ul>
+        <li>{{ color|upper}}</li>
+    </ul>
+{% endfor %}
+
+{% set colori=["red", "blue", "green", "orange"] %}
+{% for color in colori %}
+    <div>{{ loop.index }}</div>
+    <ul>
+        <li style="background-color: {{ color }}">{{ color }}</li>
+    </ul>
+{% endfor %}
+
+{# un objet #}
+{% set book = {title:'Odissea', year:'2000', author:'Omero'} %}
+<h3>{{ book.author }}</h3>
+<div>
+    {% for key, value in book %}
+        <div>{{ key}} $$$ {{ value }}</div>
+    {% endfor %}
+</div>
+<p></p>
+{# affichage d'un date #}
+<div>{{ "now"|date('Y') }}</div>
+
+<p></p>
+{# affichage d'un date #}
+<div>{{ "+1 year"|date('Y') }}</div>
+
+{%  endblock %}
+
+{% block title %} {{ parent() }} | page de test {% endblock %}
